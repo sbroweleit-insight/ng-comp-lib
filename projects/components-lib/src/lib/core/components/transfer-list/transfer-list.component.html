@@ -1,0 +1,25 @@
+<div class="transfer-list">
+  <div class="transfer-list-column">
+    <ul>
+      <li *ngFor="let item of leftList; let i = index">
+        {{ item }}
+        <button mat-raised-button color="primary" (click)="transferRight(i)">
+          Transfer
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <button mat-raised-button color="primary">Primary</button>
+  </div>
+  <div class="transfer-list-column">
+    <ul>
+      <li *ngFor="let item of rightList; let i = index">
+        {{ item }}
+        <button mat-raised-button color="primary" (click)="transferLeft(i)">
+          Transfer
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

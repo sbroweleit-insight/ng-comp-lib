@@ -1,24 +1,7 @@
-<div class="cui-docs-content p-xxs sm:p-xxl">
-  <p>
-    The goal of a design system is to create inclusive, usable, and predictable
-    experiences that allow our users to stay focused on the task at hand rather
-    than on the inconsistencies of the interfaces they're using. We strive to
-    follow web accessibility guidelines set by
-    <a class="cui-link" href="https://www.w3.org/TR/WCAG21/" target="_blank"
-      >WCAG 2.1</a
-    >
-    to create applications accessible to all, because accessible experiences for
-    some are better experiences for everyone.
-  </p>
-  <p class="mb-0">
-    This design system is an extension of the Angular Material Design system and
-    is distributed internally within Progressive Claims as the
-    <code>@pgr-cla/core-ui-components</code> npm package. This documentation is
-    supplementary to the
-    <a class="cui-link" href="https://material.angular.io/" target="_blank"
-      >Angular Material</a
-    >
-    documentation and both should be referenced while developing applications
-    using this package.
-  </p>
-</div>
+<section>
+  <lib-transfer-list
+    [leftList]="leftItems"
+    [rightList]="rightItems"
+    (onTransfer)="handleTransfer($event)"
+  ></lib-transfer-list>
+</section>

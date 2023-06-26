@@ -1,22 +1,22 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatIconModule } from "@angular/material/icon";
-import { HomeComponent } from "./components";
 import { HomeContainerComponent } from "./home-container.component";
+import { TransferListModule } from "projects/components-lib/src/public_api";
 import { HomeRoutingModule } from "./home.routing.module";
-import { AppSharedModule } from "../app-shared/app-shared.module";
+import { HomeComponent } from "./components";
+import { AppSharedModule } from "@modules/app-shared/app-shared.module";
 
 @NgModule({
   imports: [
-    CommonModule,
     HomeRoutingModule,
-    AppSharedModule,
+    CommonModule,
     ReactiveFormsModule,
-    MatIconModule,
+    TransferListModule,
+    AppSharedModule,
   ],
   exports: [],
-  declarations: [HomeComponent, HomeContainerComponent],
+  declarations: [HomeContainerComponent, HomeComponent],
   providers: [],
 })
 export class HomeModule {}

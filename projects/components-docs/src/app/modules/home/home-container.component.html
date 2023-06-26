@@ -1,9 +1,20 @@
-<div class="px-m py-xxs">
-  <div class="cui-docs-container mt-xxl mx-auto">
-    <span class="block font-italic mb-xs">
-      The CoreUI vision is to promote tenants of usability, efficiency,
-      flexibility, and consistency to create a better every day life for our
-      users.
-    </span>
+<div>
+  The CoreUI vision is to promote tenants of usability, efficiency, flexibility,
+  and consistency to create a better every day life for our users.
+  <nav aria-labelledby="pageHeading" mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a
+      mat-tab-link
+      *ngFor="let subSection of subSections"
+      [routerLink]="[subSection.route]"
+      routerLinkActive="active"
+      #subSectionLink="routerLinkActive"
+      [active]="subSectionLink.isActive"
+    >
+      {{ subSection.label }}
+    </a>
+  </nav>
+  <br />
+  <div #tabPanel>
+    <router-outlet></router-outlet>
   </div>
 </div>

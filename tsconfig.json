@@ -21,7 +21,7 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@modules/*": ["./projects/core-ui-components-docs/src/app/modules/*"]
+      "@modules/*": ["./projects/components-docs/src/app/modules/*"]
     }
   },
   "angularCompilerOptions": {

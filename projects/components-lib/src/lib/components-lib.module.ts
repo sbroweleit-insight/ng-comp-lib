@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
-import { SpinnerModule } from "./components/spinner";
+import { TransferListModule, TimePickerModule } from "./core/components";
 
 @NgModule({
-  imports: [SpinnerModule],
-  declarations: [SpinnerModule],
+  imports: [TransferListModule, TimePickerModule],
+  exports: [TransferListModule, TimePickerModule],
 })
-export class AppModule {}
+export class ComponentsLibModule {}

@@ -21,7 +21,7 @@
             "outputPath": "dist-docs",
             "index": "projects/components-docs/src/index.html",
             "main": "projects/components-docs/src/main.ts",
-            "polyfills": "projects/components-docs/src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/components-docs/tsconfig.app.json",
             "assets": [
               "projects/components-docs/src/favicon.ico",
@@ -85,13 +85,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/core-ui-components/tsconfig.lib.json",
-            "project": "projects/core-ui-components/ng-package.json"
+            "tsConfig": "projects/components-lib/tsconfig.lib.json",
+            "project": "projects/components-lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/core-ui-components/ng-package.prod.json",
-              "tsConfig": "projects/core-ui-components/tsconfig.lib.prod.json"
+              "project": "projects/components-lib/ng-package.prod.json",
+              "tsConfig": "projects/components-lib/tsconfig.lib.prod.json"
             }
           }
         }
