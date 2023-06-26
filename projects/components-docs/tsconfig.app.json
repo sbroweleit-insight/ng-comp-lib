@@ -2,9 +2,21 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": []
+    "outDir": "../../out-tsc/app",
+    "types": [],
+    "lib": ["es2020", "dom"],
+    "typeRoots": ["node_modules/@types"],
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "components-lib": ["dist"],
+      "components-lib/*": ["dist/*"],
+      "@modules/*": ["projects/components-docs/src/app/modules/*"]
+    }
   },
-  "files": ["src/main.ts"],
-  "include": ["src/**/*.d.ts"]
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": ["**/*.d.ts"]
 }

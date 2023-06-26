@@ -23,8 +23,11 @@
             "main": "projects/components-docs/src/main.ts",
             "polyfills": "projects/components-docs/src/polyfills.ts",
             "tsConfig": "projects/components-docs/tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "projects/components-docs/src/favicon.ico",
+              "projects/components-docs/src/assets"
+            ],
+            "styles": ["projects/components-docs/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -60,11 +63,11 @@
             "production": {
               "browserTarget": "components-docs:build:production"
             },
-            "local": {
-              "browserTarget": "components-docs:build:local"
+            "development": {
+              "browserTarget": "components-docs:build:development"
             }
           },
-          "defaultConfiguration": "local"
+          "defaultConfiguration": "development"
         }
       }
     },
@@ -95,7 +98,6 @@
       }
     }
   },
-  "defaultProject": "components-lib",
   "cli": {
     "analytics": false
   }
