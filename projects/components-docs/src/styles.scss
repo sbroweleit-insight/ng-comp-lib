@@ -1,4 +1,32 @@
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@use "sass:map";
+@use "@angular/material" as mat;
+@use "@dhutaryan/ngx-mat-timepicker" as mat-timepicker;
+
+$my-primary: mat.define-palette(mat.$green-palette);
+$my-accent: mat.define-palette(mat.$light-green-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette);
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+@include mat.core();
+
+@include mat.all-component-themes($my-theme);
+@include mat-timepicker.timepicker-theme($my-theme);
+
+html,
 body {
-  background-color: lightgrey;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

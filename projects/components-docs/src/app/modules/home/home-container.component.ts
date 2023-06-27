@@ -8,14 +8,12 @@ import { Component } from "@angular/core";
 export class HomeContainerComponent {
   subSections = [
     {
-      icon: "info",
-      label: "Overview",
+      label: "Time Picker",
       route: "overview",
     },
     {
-      icon: "tips_and_updates",
-      label: "Request Updates",
-      route: "request-updates",
+      label: "Transfer list",
+      route: "transfer-list",
     },
   ];
 }

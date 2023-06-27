@@ -1,6 +1,5 @@
-<div>
-  The CoreUI vision is to promote tenants of usability, efficiency, flexibility,
-  and consistency to create a better every day life for our users.
+<section>
+  Component
   <nav aria-labelledby="pageHeading" mat-tab-nav-bar [tabPanel]="tabPanel">
     <a
       mat-tab-link
@@ -14,7 +13,7 @@
     </a>
   </nav>
   <br />
-  <div #tabPanel>
+  <article #tabPanel>
     <router-outlet></router-outlet>
-  </div>
-</div>
+  </article>
+</section>
