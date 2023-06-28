@@ -2,8 +2,33 @@
 @use "@angular/material" as mat;
 @use "@dhutaryan/ngx-mat-timepicker" as mat-timepicker;
 
-$primary: mat.define-palette(mat.$green-palette);
-$accent: mat.define-palette(mat.$indigo-palette);
+$publix-palette: (
+  50: #eaf3e7,
+  100: #86ca72,
+  200: #6bbf52,
+  300: #51b330,
+  400: #47a427,
+  500: #2d810e,
+  600: #296614,
+  700: #0f6200,
+  800: #1b4d08,
+  900: #123406,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$primary: mat.define-palette($publix-palette, 600);
+$accent: mat.define-palette($publix-palette, 400);
 $warn: mat.define-palette(mat.$red-palette);
 $theme: mat.define-light-theme(
   (
@@ -13,9 +38,10 @@ $theme: mat.define-light-theme(
       warn: $warn,
     ),
     typography: mat.define-typography-config(),
-    density: 0,
+    density: "default",
   )
 );
+
 @include mat.core();
 @include mat.all-component-themes($theme);
 @include mat-timepicker.timepicker-theme($theme);

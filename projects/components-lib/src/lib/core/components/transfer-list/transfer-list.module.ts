@@ -4,23 +4,26 @@ import { MatInputModule } from "@angular/material/input";
 import { TransferListComponent } from "./transfer-list.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
+import { TransferFilterPipe } from "./transfer-filter.pipe";
+import { MatChipsModule } from "@angular/material/chips";
+import { OrderByPipe } from "../../pipes/orderby.pipe";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     MatButtonModule,
-    MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
-    ReactiveFormsModule,
+    MatChipsModule,
   ],
   exports: [TransferListComponent],
-  declarations: [TransferListComponent],
+  declarations: [TransferListComponent, TransferFilterPipe, OrderByPipe],
+  providers: [],
 })
 export class TransferListModule {}

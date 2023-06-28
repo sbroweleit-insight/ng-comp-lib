@@ -1,29 +1,45 @@
 <section>
   <article class="mat-elevation-z2">
     <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input matInput placeholder="Filter" [(ngModel)]="filterA" />
+      <input matInput placeholder="Filter" [(ngModel)]="filterA" #itemSearchA />
       <button
         *ngIf="filterA"
         matSuffix
         mat-icon-button
         aria-label="Clear"
         (click)="filterA = ''"
+        (keyup.enter)="filterA = ''"
       >
         <mat-icon>close</mat-icon>
       </button>
       <mat-hint align="end">
-        selected: {{ selectedA.length }}/{{ listDataA.length }}
+        selected: {{ listSelectedA.length }}/{{ listA.length }}
       </mat-hint>
     </mat-form-field>
+    <div class="chips-area">
+      <mat-chip-grid>
+        <mat-chip-row *ngFor="let el of listSelectedA | orderBy : 'title'">
+          {{ el.title }}
+          <!-- <button matChipRemove><mat-icon>cancel</mat-icon></button> -->
+        </mat-chip-row>
+      </mat-chip-grid>
+    </div>
     <mat-selection-list
-      #list1
-      (selectionChange)="onGroupChangeA(list1.selectedOptions.selected)"
       class="transfer-list-selections"
+      [ngModel]="listSelectedA"
+      (selectionChange)="onSelectChangeA()"
+      (keyup.enter)="onSelectChangeA()"
     >
       <mat-list-option
-        *ngFor="let el of listFnA(); trackBy: trackById"
+        *ngFor="
+          let el of listA
+            | transferFilter : itemSearchA.value
+            | orderBy : 'title'
+        "
         [value]="el"
+        [selected]="el.selected"
+        (click)="el.selected = !el.selected"
+        (keyup.enter)="el.selected = !el.selected"
       >
         {{ el.title }}
       </mat-list-option>
@@ -31,40 +47,47 @@
   </article>
   <article class="btns">
     <button mat-raised-button color="primary" (click)="moveAllToB()">>></button>
-    <button mat-raised-button color="accent" (click)="moveSelectedToB()">
+    <button mat-raised-button color="accent" (click)="moveSelectToB()">
       >
     </button>
-    <button mat-raised-button color="accent" (click)="moveSelectedToA()">
+    <button mat-raised-button color="accent" (click)="moveSelectToA()">
       <
     </button>
     <button mat-raised-button color="primary" (click)="moveAllToA()"><<</button>
   </article>
-
   <article class="mat-elevation-z2">
     <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input matInput placeholder="Filter" [(ngModel)]="filterB" />
+      <input matInput placeholder="Filter" [(ngModel)]="filterB" #itemSearchB />
       <button
         *ngIf="filterB"
         matSuffix
         mat-icon-button
         aria-label="Clear"
         (click)="filterB = ''"
+        (keyup.enter)="filterB = ''"
       >
         <mat-icon>close</mat-icon>
       </button>
       <mat-hint align="end">
-        selected: {{ selectedB.length }}/{{ listDataB.length }}
+        selected: {{ listSelectedB.length }}/{{ listB.length }}
       </mat-hint>
     </mat-form-field>
     <mat-selection-list
-      #list2
-      (selectionChange)="onGroupChangeB(list2.selectedOptions.selected)"
       class="transfer-list-selections"
+      [ngModel]="listSelectedB"
+      (selectionChange)="onSelectChangeB()"
+      (keyup.enter)="onSelectChangeB()"
     >
       <mat-list-option
-        *ngFor="let el of listFnB(); trackBy: trackById"
+        *ngFor="
+          let el of listB
+            | transferFilter : itemSearchB.value
+            | orderBy : 'title'
+        "
         [value]="el"
+        [selected]="el.selected"
+        (click)="el.selected = !el.selected"
+        (keyup.enter)="el.selected = !el.selected"
       >
         {{ el.title }}
       </mat-list-option>
