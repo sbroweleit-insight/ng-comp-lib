@@ -2,12 +2,16 @@
   <article class="mat-elevation-z2">
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input
-        matInput
-        placeholder="Filter"
-        [formControl]="controlFirst"
-        (keyup)="onKeyUpA($event)"
-      />
+      <input matInput placeholder="Filter" [(ngModel)]="filterA" />
+      <button
+        *ngIf="filterA"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="filterA = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
       <mat-hint align="end">
         selected: {{ selectedA.length }}/{{ listDataA.length }}
       </mat-hint>
@@ -21,26 +25,34 @@
         *ngFor="let el of listFnA(); trackBy: trackById"
         [value]="el"
       >
-        {{ el.text }}
+        {{ el.title }}
       </mat-list-option>
     </mat-selection-list>
   </article>
   <article class="btns">
-    <button mat-raised-button (click)="moveAllToB()">>></button>
-    <button mat-raised-button (click)="moveSelectedToB()">></button>
-    <button mat-raised-button (click)="moveSelectedToA()"><</button>
-    <button mat-raised-button (click)="moveAllToA()"><<</button>
+    <button mat-raised-button color="primary" (click)="moveAllToB()">>></button>
+    <button mat-raised-button color="accent" (click)="moveSelectedToB()">
+      >
+    </button>
+    <button mat-raised-button color="accent" (click)="moveSelectedToA()">
+      <
+    </button>
+    <button mat-raised-button color="primary" (click)="moveAllToA()"><<</button>
   </article>
 
   <article class="mat-elevation-z2">
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input
-        matInput
-        placeholder="Filter"
-        [formControl]="controlSecond"
-        (keyup)="onKeyUpB($event)"
-      />
+      <input matInput placeholder="Filter" [(ngModel)]="filterB" />
+      <button
+        *ngIf="filterB"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="filterB = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
       <mat-hint align="end">
         selected: {{ selectedB.length }}/{{ listDataB.length }}
       </mat-hint>
@@ -54,7 +66,7 @@
         *ngFor="let el of listFnB(); trackBy: trackById"
         [value]="el"
       >
-        {{ el.text }}
+        {{ el.title }}
       </mat-list-option>
     </mat-selection-list>
   </article>

@@ -2,7 +2,7 @@
   display: block;
 }
 section {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 1fr auto 1fr;
   gap: 1rem;
 }

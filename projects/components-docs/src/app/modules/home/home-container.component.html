@@ -1,19 +1,8 @@
 <section>
-  Component
-  <nav aria-labelledby="pageHeading" mat-tab-nav-bar [tabPanel]="tabPanel">
-    <a
-      mat-tab-link
-      *ngFor="let subSection of subSections"
-      [routerLink]="[subSection.route]"
-      routerLinkActive="active"
-      #subSectionLink="routerLinkActive"
-      [active]="subSectionLink.isActive"
-    >
-      {{ subSection.label }}
-    </a>
-  </nav>
-  <br />
-  <article #tabPanel>
-    <router-outlet></router-outlet>
-  </article>
+  <h2>Transfer List Component</h2>
+  <lib-transfer-list
+    [listDataA]="leftItems"
+    [listDataB]="rightItems"
+    (selectChange)="handleTransfer($event)"
+  ></lib-transfer-list>
 </section>

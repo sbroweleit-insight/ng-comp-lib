@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormControl } from "@angular/forms";
-import { MatListOption, MatSelectionListChange } from "@angular/material/list";
+import { MatListOption } from "@angular/material/list";
 
-interface TransferListItem {
-  text: string;
+interface TransferItem {
+  title: string;
   id: string;
 }
 
@@ -13,24 +13,13 @@ interface TransferListItem {
   styleUrls: ["./transfer-list.component.scss"],
 })
 export class TransferListComponent {
-  listDataA: TransferListItem[] = [
-    { text: "Hennessey Venom", id: "list-01" },
-    { text: "Bugatti Chiron", id: "list-02" },
-    { text: "Bugatti Veyron Super Sport", id: "list-03" },
-    { text: "SSC Ultimate Aero", id: "list-04" },
-    { text: "Koenigsegg CCR", id: "list-05" },
-    { text: "McLaren F1", id: "list-06" },
-    { text: "Jaguar XJ220", id: "list-08" },
-    { text: "McLaren P1", id: "list-09" },
-    { text: "Ferrari LaFerrari", id: "list-10" },
-  ];
-  listDataB: TransferListItem[] = [
-    { text: "Aston Martin One- 77", id: "list-07" },
-  ];
-  controlFirst = new FormControl();
-  controlSecond = new FormControl();
-  selectedA: TransferListItem[] = [];
-  selectedB: TransferListItem[] = [];
+  @Input() listDataA: TransferItem[] = [];
+  @Input() listDataB: TransferItem[] = [];
+  @Output() selectChange = new EventEmitter();
+  selectedA: TransferItem[] = [];
+  selectedB: TransferItem[] = [];
+  filterA = "";
+  filterB = "";
 
   constructor() {}
 
@@ -39,6 +28,7 @@ export class TransferListComponent {
     this.listDataB = this.listDataB.concat(this.listDataA);
     this.listDataA = [];
     this.selectedA = [];
+    this.emitListB();
   }
 
   //Here, the selected list items are moved to the second list on clicking move button
@@ -48,6 +38,7 @@ export class TransferListComponent {
       (el) => !this.selectedA.includes(el)
     );
     this.selectedA = [];
+    this.emitListB();
   }
 
   //Here, the selected list items are moved to the first list on clicking move button
@@ -57,6 +48,7 @@ export class TransferListComponent {
       (el) => !this.selectedB.includes(el)
     );
     this.selectedB = [];
+    this.emitListB();
   }
 
   //Here, all list items are moved to the first list on clicking move all button
@@ -64,13 +56,12 @@ export class TransferListComponent {
     this.listDataA = this.listDataA.concat(this.listDataB);
     this.listDataB = [];
     this.selectedB = [];
+    this.emitListB();
   }
 
-  //Here, filtering is handled
-  onKeyUpA(e: KeyboardEvent) {}
-
-  //Here, filtering is handled
-  onKeyUpB(e: KeyboardEvent) {}
+  emitListB() {
+    this.selectChange.emit(this.listDataB);
+  }
 
   onGroupChangeA(options: MatListOption[]) {
     this.selectedA = options.map((o) => o.value);
@@ -81,34 +72,34 @@ export class TransferListComponent {
   }
 
   listFnA() {
-    const filtered = this.controlFirst.value
+    const filtered = this.filterA
       ? this.listDataA.filter((el) =>
-          el.text
+          el.title
             .toLocaleLowerCase()
-            .includes(this.controlFirst.value.toLocaleLowerCase())
+            .includes(this.filterA.toLocaleLowerCase())
         )
       : this.listDataA;
     const sorted = filtered.sort((a, b) =>
-      a.text > b.text ? 1 : a.text === b.text ? 0 : -1
+      a.title > b.title ? 1 : a.title === b.title ? 0 : -1
     );
     return sorted;
   }
 
   listFnB() {
-    const filtered = this.controlSecond.value
+    const filtered = this.filterB
       ? this.listDataB.filter((el) =>
-          el.text
+          el.title
             .toLocaleLowerCase()
-            .includes(this.controlSecond.value.toLocaleLowerCase())
+            .includes(this.filterB.toLocaleLowerCase())
         )
       : this.listDataB;
     const sorted = filtered.sort((a, b) =>
-      a.text > b.text ? 1 : a.text === b.text ? 0 : -1
+      a.title > b.title ? 1 : a.title === b.title ? 0 : -1
     );
     return sorted;
   }
 
-  public trackById(index: number, item: TransferListItem) {
+  public trackById(index: number, item: TransferItem) {
     return item.id;
   }
 }

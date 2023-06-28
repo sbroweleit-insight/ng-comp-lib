@@ -1,15 +1,15 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HomeContainerComponent } from "./home-container.component";
-// import { HomeComponent } from "./components";
+import { TimeComponent } from "./time.component";
+// import { TimeComponent } from "./components";
 
 const routes: Routes = [
   {
     path: "",
-    component: HomeContainerComponent,
+    component: TimeComponent,
     children: [
       // { path: "", redirectTo: "overview", pathMatch: "full" },
-      // { path: "overview", component: HomeComponent },
+      // { path: "overview", component: TimeComponent },
     ],
   },
 ];
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomeRoutingModule {}
+export class TimeRoutingModule {}

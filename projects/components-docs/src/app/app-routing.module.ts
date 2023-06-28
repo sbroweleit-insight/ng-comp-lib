@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./modules/home/home.module").then((m) => m.HomeModule),
   },
+  {
+    path: "time",
+    loadChildren: () =>
+      import("./modules/time/time.module").then((m) => m.TimeModule),
+  },
   { path: "**", redirectTo: "home" },
 ];
 

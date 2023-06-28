@@ -1,14 +1,14 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HomeContainerComponent } from "./home-container.component";
+import { TimeComponent } from "./time.component";
 import { TransferListModule } from "projects/components-lib/src/public_api";
 import { AppSharedModule } from "@modules/app-shared/app-shared.module";
 import {
   MatNativeDateTimeModule,
   MatTimepickerModule,
 } from "@dhutaryan/ngx-mat-timepicker";
-import { HomeRoutingModule } from "./home.routing.module";
+import { TimeRoutingModule } from "./time.routing.module";
 
 @NgModule({
   imports: [
@@ -19,10 +19,10 @@ import { HomeRoutingModule } from "./home.routing.module";
     MatTimepickerModule,
     MatNativeDateTimeModule,
     FormsModule,
-    HomeRoutingModule,
+    TimeRoutingModule,
   ],
   exports: [],
-  declarations: [HomeContainerComponent],
+  declarations: [TimeComponent],
   providers: [],
 })
-export class HomeModule {}
+export class TimeModule {}

@@ -4,13 +4,19 @@ import { MatInputModule } from "@angular/material/input";
 import { TransferListComponent } from "./transfer-list.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   imports: [
     CommonModule,
-    MatInputModule,
+    FormsModule,
     MatButtonModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
     MatListModule,
     ReactiveFormsModule,
   ],

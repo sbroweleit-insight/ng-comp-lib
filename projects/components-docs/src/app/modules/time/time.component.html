@@ -1,0 +1,13 @@
+<mat-form-field appearance="fill">
+  <input
+    type="text"
+    matInput
+    [matTimepicker]="inputpicker12"
+    [(ngModel)]="date"
+  />
+  <mat-timepicker-toggle
+    matSuffix
+    [for]="inputpicker12"
+  ></mat-timepicker-toggle>
+  <mat-timepicker mode="input" #inputpicker12></mat-timepicker>
+</mat-form-field>
