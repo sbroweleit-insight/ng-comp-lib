@@ -2,21 +2,23 @@
   display: block;
 }
 
-.content-a {
-  display: flex;
-  flex-direction: column;
-}
-
-.transfer-list-selections {
+.scroll-area {
   height: 255px;
   overflow: scroll;
 }
-
-.title-group {
+.flex {
   display: flex;
+}
+.justify-between {
   justify-content: space-between;
 }
+.items-center {
+  align-items: center;
+}
 
-.card-content {
-  padding: 1rem;
+.flex-col {
+  flex-direction: column;
+}
+.m-4 {
+  margin: 1rem; /* 16px */
 }

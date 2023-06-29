@@ -1,81 +1,83 @@
 <mat-card>
   <article *ngIf="!selectedView">
-    <div class="mat-mdc-card-header title-group">
-      <div>
-        <button mat-flat-button>
+    <div class="mat-mdc-card-header justify-between items-center">
+      <div class="flex items-center">
+        <button mat-icon-button>
           <mat-icon>close</mat-icon>
         </button>
-        <mat-card-title>Add Stores</mat-card-title>
+        <h3>Add Stores</h3>
       </div>
       <div>
         <button mat-button (click)="selectedView = !selectedView">
-          Selected ({{ listSelectedA.length }}/{{ listA.length }})
+          Selected ({{ isSelectedA().length }}/{{ listA.length }})
         </button>
       </div>
     </div>
-    <mat-card-content class="content-a">
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Filter"
-          [(ngModel)]="filterA"
-          #itemSearchA
-        />
-        <button
-          *ngIf="filterA"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="filterA = ''"
-          (keyup.enter)="filterA = ''"
-        >
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-      <mat-selection-list
-        class="transfer-list-selections"
-        [ngModel]="listSelectedA"
-        (selectionChange)="onSelectChangeA()"
-        (keyup.enter)="onSelectChangeA()"
-      >
-        <mat-list-option
-          *ngFor="
-            let el of listA
-              | transferFilter : itemSearchA.value
-              | orderBy : 'title'
-          "
-          [value]="el"
-          [selected]="el.selected"
-          (click)="el.selected = !el.selected"
-          (keyup.enter)="el.selected = !el.selected"
-        >
-          {{ el.title }}
-        </mat-list-option>
-      </mat-selection-list>
+    <mat-card-content>
+      <div class="flex flex-col">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Filter"
+            [(ngModel)]="filterA"
+            #itemSearchA
+          />
+          <button
+            *ngIf="filterA"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="filterA = ''"
+            (keyup.enter)="filterA = ''"
+            (keyup.space)="filterA = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <div class="scroll-area">
+          <mat-selection-list>
+            <mat-list-option
+              *ngFor="
+                let el of listA
+                  | transferFilter : itemSearchA.value
+                  | orderBy : 'title'
+              "
+              [value]="el"
+              [selected]="el.selected"
+              (click)="el.selected = !el.selected"
+              (keyup.enter)="el.selected = !el.selected"
+              (keyup.space)="el.selected = !el.selected"
+            >
+              {{ el.title }}
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
     </mat-card-content>
     <mat-card-actions>
-      <br />
-      <mat-divider></mat-divider>
-      <button mat-button>SAVE</button>
+      <button mat-stroked-button>SAVE</button>
     </mat-card-actions>
   </article>
 
   <article *ngIf="selectedView">
-    <div class="mat-mdc-card-header title-group">
+    <div class="mat-mdc-card-header">
       <div>
-        <button mat-flat-button (click)="selectedView = !selectedView">
-          back
+        <button mat-stroked-button (click)="selectedView = !selectedView">
+          ← back
         </button>
       </div>
     </div>
-
-    <mat-list class="transfer-list-selections">
-      <mat-list-item *ngFor="let el of listSelectedA | orderBy : 'title'">
-        {{ el.title }}
-      </mat-list-item>
-    </mat-list>
+    <div class="scroll-area m-4">
+      <mat-chip-listbox class="mat-mdc-chip-set-stacked">
+        <mat-chip *ngFor="let el of isSelectedA() | orderBy : 'title'">
+          {{ el.title }}
+          <button matChipRemove (click)="el.selected = !el.selected">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+      </mat-chip-listbox>
+    </div>
   </article>
-  <mat-card-footer>
-    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
-  </mat-card-footer>
 </mat-card>
