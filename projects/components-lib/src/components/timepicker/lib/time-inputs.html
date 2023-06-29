@@ -1,0 +1,51 @@
+<mat-timepicker-content-layout [title]="_intl.inputsTitle">
+  <mat-form-field
+    class="mat-time-inputs-field"
+    appearance="outline"
+    hours
+    [color]="color"
+  >
+    <input
+      type="text"
+      inputmode="numeric"
+      maxlength="2"
+      matInput
+      matHourInput
+      [isMeridiem]="isMeridiem"
+      [value]="selectedHour"
+      [min]="_getMinHour()"
+      [max]="_getMaxHour()"
+      [include12Hour]="include12Hour"
+      [exclude12Hour]="exclude12Hour"
+      (timeChanged)="_onHourSelected($event)"
+    />
+    <mat-hint>{{_intl.hourInputHint}}</mat-hint>
+  </mat-form-field>
+  <mat-form-field
+    class="mat-time-inputs-field"
+    appearance="outline"
+    minutes
+    [color]="color"
+  >
+    <input
+      type="text"
+      inputmode="numeric"
+      maxlength="2"
+      matInput
+      matMinuteInput
+      [value]="selectedMinute"
+      [min]="minMinute || 0"
+      [max]="maxMinute || 59"
+      (timeChanged)="_onMinuteSelected($event)"
+    />
+    <mat-hint>{{_intl.minuteInputHint}}</mat-hint>
+  </mat-form-field>
+
+  <ng-template mat-time-period [ngIf]="isMeridiem">
+    <mat-time-period
+      [period]="period"
+      [disabledPeriod]="disabledPeriod"
+      (periodChanged)="_onPeriodChanged($event)"
+    ></mat-time-period>
+  </ng-template>
+</mat-timepicker-content-layout>

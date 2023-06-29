@@ -5,7 +5,7 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-// import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +18,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
   ],
   bootstrap: [AppComponent],
   providers: [
-    // { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: "outline" }}
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: "outline" },
+    },
   ],
 })
 export class AppModule {}

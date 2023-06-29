@@ -16,14 +16,7 @@
         selected: {{ listSelectedA.length }}/{{ listA.length }}
       </mat-hint>
     </mat-form-field>
-    <div class="chips-area">
-      <mat-chip-grid>
-        <mat-chip-row *ngFor="let el of listSelectedA | orderBy : 'title'">
-          {{ el.title }}
-          <!-- <button matChipRemove><mat-icon>cancel</mat-icon></button> -->
-        </mat-chip-row>
-      </mat-chip-grid>
-    </div>
+
     <mat-selection-list
       class="transfer-list-selections"
       [ngModel]="listSelectedA"

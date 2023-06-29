@@ -1,3 +1,3 @@
-export * from "./lib/core/components";
+export * from "./components";
 
-export { ComponentsLibModule } from "./lib/components-lib.module";
+// export { ComponentsLibModule } from "./lib/components-lib.module";

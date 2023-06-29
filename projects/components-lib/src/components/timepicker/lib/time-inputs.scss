@@ -1,0 +1,50 @@
+$form-field-padding: 1.25rem;
+
+.mat-time-inputs {
+  display: block;
+
+  .mat-timepicker-content-layout-separator {
+    margin-top: -$form-field-padding;
+  }
+}
+
+.mat-time-inputs-field {
+  display: block;
+
+  &.mat-form-field-appearance-outline {
+    .mat-form-field-flex {
+      margin: 0;
+    }
+
+    .mat-form-field-outline {
+      top: 0;
+    }
+
+    .mat-form-field-wrapper {
+      top: 0;
+      margin: 0;
+      padding-bottom: $form-field-padding;
+    }
+
+    .mat-form-field-infix {
+      padding: 1rem 0;
+    }
+
+    .mat-form-field-subscript-wrapper {
+      margin-top: 0.59375rem;
+      padding-left: 0;
+      line-height: 1;
+      letter-spacing: 0.05rem;
+    }
+  }
+
+  .mat-form-field-infix {
+    border-top: none;
+    text-align: center;
+  }
+
+  input.mat-input-element {
+    margin-top: 0;
+    line-height: normal;
+  }
+}

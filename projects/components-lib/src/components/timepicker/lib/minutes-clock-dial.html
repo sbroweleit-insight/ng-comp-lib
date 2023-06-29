@@ -1,0 +1,20 @@
+<div
+  class="mat-clock-dial-hand"
+  [class.mat-clock-dial-hand-pointless]="isMinutePoint"
+  [class.mat-clock-dial-hand-disabled]="disabled"
+  [ngStyle]="_handStyles()"
+></div>
+<ng-template ngFor let-minute [ngForOf]="minutes">
+  <button
+    class="mat-clock-dial-cell mat-elevation-z0"
+    mat-mini-fab
+    disableRipple
+    [style.left.px]="minute.left"
+    [style.top.px]="minute.top"
+    [class.mat-clock-dial-cell-active]="selectedMinute === minute.value"
+    [color]="selectedMinute === minute.value ? color : undefined"
+    [disabled]="minute.disabled"
+  >
+    {{ minute.displayValue }}
+  </button>
+</ng-template>

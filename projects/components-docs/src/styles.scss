@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "@angular/material" as mat;
-@use "@dhutaryan/ngx-mat-timepicker" as mat-timepicker;
+@use "../../components-lib/src/components/timepicker/" as mat-timepicker;
 
 $publix-palette: (
   50: #eaf3e7,
@@ -27,8 +27,8 @@ $publix-palette: (
   ),
 );
 
-$primary: mat.define-palette($publix-palette, 600);
-$accent: mat.define-palette($publix-palette, 400);
+$primary: mat.define-palette($publix-palette, 500, 600);
+$accent: mat.define-palette($publix-palette, 100, 200, 400, 500);
 $warn: mat.define-palette(mat.$red-palette);
 $theme: mat.define-light-theme(
   (
@@ -42,9 +42,9 @@ $theme: mat.define-light-theme(
   )
 );
 
+@include mat-timepicker.timepicker-theme($theme);
 @include mat.core();
 @include mat.all-component-themes($theme);
-@include mat-timepicker.timepicker-theme($theme);
 
 html,
 body {

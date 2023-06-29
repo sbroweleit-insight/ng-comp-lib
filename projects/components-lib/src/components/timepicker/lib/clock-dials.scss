@@ -1,0 +1,17 @@
+.mat-clock-dial-values {
+  display: flex;
+  width: 100%;
+}
+
+.mat-clock-dial-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.375rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.mat-clock-dial-faces {
+  margin-top: 2.25rem;
+}
