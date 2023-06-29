@@ -1,3 +1,2 @@
-export * from "./time-picker";
-export * from "./transfer-list";
+export * from "./transferlist";
 export * from "./timepicker/public-api";

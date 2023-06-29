@@ -7,10 +7,10 @@ interface TransferItem {
 
 @Component({
   selector: "lib-transfer-list",
-  templateUrl: "./transfer-list.component.html",
-  styleUrls: ["./transfer-list.component.scss"],
+  templateUrl: "./transferlist.component.html",
+  styleUrls: ["./transferlist.component.scss"],
 })
-export class OGTransferListComponent implements OnInit {
+export class TransferListComponent implements OnInit {
   @Output() selectChange = new EventEmitter();
   @Input() listDataA: any[] = [];
   @Input() listDataB: any[] = [];
@@ -20,6 +20,8 @@ export class OGTransferListComponent implements OnInit {
   listSelectedB: TransferItem[] = [];
   filterA = "";
   filterB = "";
+
+  selectedView = false;
 
   constructor() {}
 

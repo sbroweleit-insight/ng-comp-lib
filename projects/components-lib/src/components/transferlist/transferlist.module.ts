@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { MatInputModule } from "@angular/material/input";
-import { OGTransferListComponent } from "./transfer-list.component";
+import { TransferListComponent } from "./transferlist.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
 import { FormsModule } from "@angular/forms";
@@ -26,8 +26,8 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
     MatCardModule,
     MatProgressBarModule,
   ],
-  exports: [OGTransferListComponent],
-  declarations: [OGTransferListComponent, TransferFilterPipe, OrderByPipe],
+  exports: [TransferListComponent],
+  declarations: [TransferListComponent, TransferFilterPipe, OrderByPipe],
   providers: [],
 })
-export class OGTransferListModule {}
+export class TransferListModule {}

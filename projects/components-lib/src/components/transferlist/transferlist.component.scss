@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.content-a {
+  display: flex;
+  flex-direction: column;
+}
+
+.transfer-list-selections {
+  height: 255px;
+  overflow: scroll;
+}
+
+.title-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-content {
+  padding: 1rem;
+}
