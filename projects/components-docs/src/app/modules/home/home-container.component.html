@@ -1,7 +1,16 @@
-<section>
-  <h2>Transfer List Component</h2>
-  <lib-transfer-list
-    [listDataA]="leftItems"
-    (selectChange)="handleTransfer($event)"
-  ></lib-transfer-list>
-</section>
+<mat-drawer-container class="example-container" autosize>
+  <p>
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </p>
+  <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+    <button type="button" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <lib-transfer-list
+      [listDataA]="leftItems"
+      (selectChange)="handleTransfer($event)"
+    ></lib-transfer-list>
+  </mat-drawer>
+</mat-drawer-container>

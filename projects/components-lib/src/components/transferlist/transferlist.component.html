@@ -1,83 +1,58 @@
-<mat-card>
-  <article *ngIf="!selectedView">
-    <div class="mat-mdc-card-header justify-between items-center">
-      <div class="flex items-center">
-        <button mat-icon-button>
-          <mat-icon>close</mat-icon>
-        </button>
-        <h3>Add Stores</h3>
-      </div>
-      <div>
-        <button mat-button (click)="selectedView = !selectedView">
-          Selected ({{ isSelectedA().length }}/{{ listA.length }})
-        </button>
-      </div>
-    </div>
-    <mat-card-content>
-      <div class="flex flex-col">
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Filter"
-            [(ngModel)]="filterA"
-            #itemSearchA
-          />
-          <button
-            *ngIf="filterA"
-            matSuffix
-            mat-icon-button
-            aria-label="Clear"
-            (click)="filterA = ''"
-            (keyup.enter)="filterA = ''"
-            (keyup.space)="filterA = ''"
-          >
-            <mat-icon>close</mat-icon>
-          </button>
-        </mat-form-field>
-        <div class="scroll-area">
-          <mat-selection-list>
-            <mat-list-option
-              *ngFor="
-                let el of listA
-                  | transferFilter : itemSearchA.value
-                  | orderBy : 'title'
-              "
-              [value]="el"
-              [selected]="el.selected"
-              (click)="el.selected = !el.selected"
-              (keyup.enter)="el.selected = !el.selected"
-              (keyup.space)="el.selected = !el.selected"
-            >
-              {{ el.title }}
-            </mat-list-option>
-          </mat-selection-list>
-        </div>
-      </div>
+<ng-container *ngIf="!selectedView">
+  <div class="text-right">
+    <button mat-button (click)="selectedView = !selectedView">
+      Selected ({{ isSelectedA().length }}/{{ listA.length }})
+    </button>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Filter" [(ngModel)]="filterA" #itemSearchA />
+    <button
+      *ngIf="filterA"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="filterA = ''"
+      (keyup.enter)="filterA = ''"
+      (keyup.space)="filterA = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="list-container">
+    <mat-selection-list>
+      <mat-list-option
+        *ngFor="
+          let el of listA
+            | transferFilter : itemSearchA.value
+            | orderBy : 'title'
+        "
+        [selected]="el.selected"
+        (click)="el.selected = !el.selected"
+        (keyup.enter)="el.selected = !el.selected"
+        (keyup.space)="el.selected = !el.selected"
+        checkboxPosition="before"
+      >
+        {{ el.title }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</ng-container>
 
-      <mat-divider></mat-divider>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-stroked-button>SAVE</button>
-    </mat-card-actions>
-  </article>
-
-  <article *ngIf="selectedView">
-    <div class="mat-mdc-card-header">
-      <div>
-        <button mat-stroked-button (click)="selectedView = !selectedView">
-          ← back
-        </button>
-      </div>
+<ng-container *ngIf="selectedView">
+  <div>
+    <button mat-button (click)="selectedView = !selectedView">← back</button>
+  </div>
+  <div class="list-container">
+    <div
+      *ngFor="let el of isSelectedA() | orderBy : 'title'"
+      class="flex items-center bg-gray"
+    >
+      <button mat-icon-button (click)="el.selected = !el.selected">
+        <mat-icon>close</mat-icon>
+      </button>
+      <span>
+        {{ el.title }}
+      </span>
     </div>
-    <div class="scroll-area m-4">
-      <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-        <mat-chip *ngFor="let el of isSelectedA() | orderBy : 'title'">
-          {{ el.title }}
-          <button matChipRemove (click)="el.selected = !el.selected">
-            <mat-icon>cancel</mat-icon>
-          </button>
-        </mat-chip>
-      </mat-chip-listbox>
-    </div>
-  </article>
-</mat-card>
+  </div>
+</ng-container>

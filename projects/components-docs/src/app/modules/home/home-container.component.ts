@@ -25,6 +25,6 @@ export class HomeContainerComponent {
   rightItems = [{ title: "Aston Martin One- 77" }];
 
   handleTransfer(_items: any) {
-    // this.rightItems = items;
+    this.rightItems = _items;
   }
 }
