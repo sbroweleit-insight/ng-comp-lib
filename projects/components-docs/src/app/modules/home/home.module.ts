@@ -6,6 +6,7 @@ import { TransferListModule } from "projects/components-lib/src/public_api";
 import { AppSharedModule } from "@modules/app-shared/app-shared.module";
 
 import { HomeRoutingModule } from "./home.routing.module";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { HomeRoutingModule } from "./home.routing.module";
     AppSharedModule,
     FormsModule,
     HomeRoutingModule,
+    MatDialogModule,
   ],
   exports: [],
   declarations: [HomeContainerComponent],

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Title</h1>
+<div mat-dialog-content>
+  <lib-transfer-list
+    [listDataA]="data.leftItems"
+    (selectChange)="handleTransfer($event)"
+  ></lib-transfer-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

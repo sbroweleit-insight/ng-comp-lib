@@ -27,9 +27,9 @@
             | orderBy : 'title'
         "
         [selected]="el.selected"
-        (click)="el.selected = !el.selected"
-        (keyup.enter)="el.selected = !el.selected"
-        (keyup.space)="el.selected = !el.selected"
+        (click)="selectFn(el)"
+        (keyup.enter)="selectFn(el)"
+        (keyup.space)="selectFn(el)"
         checkboxPosition="before"
       >
         {{ el.title }}
@@ -47,7 +47,12 @@
       *ngFor="let el of isSelectedA() | orderBy : 'title'"
       class="flex items-center bg-gray"
     >
-      <button mat-icon-button (click)="el.selected = !el.selected">
+      <button
+        mat-icon-button
+        (click)="selectFn(el)"
+        (keyup.enter)="selectFn(el)"
+        (keyup.space)="selectFn(el)"
+      >
         <mat-icon>close</mat-icon>
       </button>
       <span>

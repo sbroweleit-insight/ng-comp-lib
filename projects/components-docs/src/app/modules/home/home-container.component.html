@@ -1,3 +1,4 @@
+<button mat-raised-button (click)="openDialog()">Pick one</button>
 <mat-drawer-container class="example-container" autosize>
   <p>
     <button type="button" mat-button (click)="drawer.toggle()">
@@ -14,3 +15,7 @@
     ></lib-transfer-list>
   </mat-drawer>
 </mat-drawer-container>
+
+<pre>
+  <code>{{selected |json}}</code>
+</pre>

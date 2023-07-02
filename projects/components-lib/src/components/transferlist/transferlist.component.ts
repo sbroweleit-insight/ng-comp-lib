@@ -28,6 +28,13 @@ export class TransferListComponent implements OnInit {
   }
 
   emitListB() {
+    console.log("emitListB");
+
     this.selectChange.emit(this.isSelectedA());
+  }
+
+  selectFn(el: TransferItem) {
+    el.selected = !el.selected;
+    this.emitListB();
   }
 }
