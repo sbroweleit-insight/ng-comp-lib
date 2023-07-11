@@ -10,7 +10,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -21,7 +21,8 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@modules/*": ["./projects/components-docs/src/app/modules/*"]
+      "@modules/*": ["./projects/components-docs/src/app/modules/*"],
+      "schems": ["dist/schems"]
     },
     "strictPropertyInitialization": false
   },

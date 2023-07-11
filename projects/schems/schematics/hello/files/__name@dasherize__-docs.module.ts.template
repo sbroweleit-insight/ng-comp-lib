@@ -1,0 +1,16 @@
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { SharedModule } from "../../../shared";
+import { <%= classify(name) %>Module } from "projects/ui-components/src/public-api";
+import { <%= classify(name) %>ExampleComponent } from "./examples";
+import { <%= classify(name) %>DocsComponent } from "./<%= dasherize(name) %>-docs.component";
+
+@NgModule({
+  imports: [
+    CommonModule,
+    SharedModule,
+    <%= classify(name) %>Module
+  ],
+  declarations: [<%= classify(name) %>DocsComponent, <%= classify(name) %>ExampleComponent],
+})
+export class <%= classify(name) %>DocsModule {}

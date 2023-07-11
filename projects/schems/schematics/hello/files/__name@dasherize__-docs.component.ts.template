@@ -1,0 +1,7 @@
+import { Component} from '@angular/core';
+
+@Component({
+  selector: 'ui-docs-<%= dasherize(name) %>-docs',
+	templateUrl: './<%= dasherize(name) %>-docs.component.html',
+})
+export class <%= classify(name) %>DocsComponent{}

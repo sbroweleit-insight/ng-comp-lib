@@ -1,0 +1,2 @@
+export { <%= classify(name) %>DocsComponent } from "./<%= dasherize(name) %>-docs.component";
+export { <%= classify(name) %>DocsModule } from "./<%= dasherize(name) %>-docs.module";

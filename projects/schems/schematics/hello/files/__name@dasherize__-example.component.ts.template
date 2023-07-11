@@ -1,0 +1,10 @@
+import { Component} from '@angular/core';
+import { codeSnippets } from "./code-snippets";
+
+@Component({
+  selector: 'ui-docs-<%= dasherize(name) %>-example',
+	templateUrl: './<%= dasherize(name) %>-example.component.html',
+})
+export class <%= classify(name) %>ExampleComponent{
+    codeSnippets = codeSnippets;
+}
