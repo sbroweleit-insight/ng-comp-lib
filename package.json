@@ -7,9 +7,7 @@
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ng serve components-docs",
-    "build": "tsc -p tsconfig.schematics.json",
-    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../../dist/components-docs/"
+    "start": "ng serve components-docs"
   },
   "dependencies": {
     "@angular-devkit/core": "^15.2.2",
