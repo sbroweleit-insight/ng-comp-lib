@@ -1,0 +1,128 @@
+<p>
+  The CoreUI accordion comes with test harnesses for the
+  <code>Accordion</code> and <code>AccordionItem</code> component classes.
+</p>
+
+<h3 class="cui-h3 mb-xs">Importing Test Harnesses</h3>
+<cui-code-block
+  aria-label="Typescript code - Accordion test harnesses"
+  [code]="code.accordionTesting"
+></cui-code-block>
+
+<h3 class="cui-h3 mb-xs">Test Harness Filters</h3>
+<cui-code-block
+  aria-label="Typescript code - Accordion test harness filters"
+  [code]="code.accordionTestingFilters"
+></cui-code-block>
+
+<h2 class="cui-h2 mb-xs">
+  AccordionHarness API - extends Angular's ComponentHarness
+</h2>
+<table class="cui-docs-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        async getAccordionItems(filter: AccordionItemHarnessFilters =
+        {{ '{}' }}): Promise&lt;AccordionItemHarness[]&gt;
+      </td>
+      <td>Gets all accordion items which are part of the accordion.</td>
+    </tr>
+    <tr>
+      <td>async isMulti(): Promise&lt;boolean&gt;</td>
+      <td>
+        Whether the accordion allows multiple expanded accordion items
+        simultaneously.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        static with(options: AccordionHarnessFilters = {{ '{}' }}):
+        HarnessPredicate&lt;AccordionHarness&gt;
+      </td>
+      <td>
+        Gets a HarnessPredicate that can be used to search for an accordion with
+        specific attributes.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="cui-h2 mb-xs">
+  AccordionItemHarness API - extends Angular's ContentContainerComponentHarness
+</h2>
+<table class="cui-docs-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>async isExpanded(): Promise&lt;boolean&gt;</td>
+      <td>Whether the accordion item is expanded.</td>
+    </tr>
+    <tr>
+      <td>async isDisabled(): Promise&lt;boolean&gt;</td>
+      <td>Whether the accordion item is disabled.</td>
+    </tr>
+    <tr>
+      <td>async isFocused(): Promise&lt;boolean&gt;</td>
+      <td>Whether the accordion item toggle button is focused.</td>
+    </tr>
+    <tr>
+      <td>async toggle(): Promise&lt;void&gt;</td>
+      <td>
+        Toggles the expanded state of the accordion item by clicking on the
+        toggle button. This method will not work if the accordion item is
+        disabled.
+      </td>
+    </tr>
+    <tr>
+      <td>async focus(): Promise&lt;void&gt;</td>
+      <td>Focuses the toggle button.</td>
+    </tr>
+    <tr>
+      <td>async blur(): Promise&lt;void&gt;</td>
+      <td>Blurs the toggle button.</td>
+    </tr>
+    <tr>
+      <td>async getToggleButtonPosition(): Promise&lt;'left' | 'right'&gt;</td>
+      <td>Gets the position of the toggle button.</td>
+    </tr>
+    <tr>
+      <td>async getHarnessLoaderForContent(): Promise&lt;HarnessLoader&gt;</td>
+      <td>Gets the position of the toggle button.</td>
+    </tr>
+    <tr>
+      <td>async getTitle(): Promise&lt;string | null&gt;</td>
+      <td>
+        Gets the title text of the accordion item if a
+        <code>mat-panel-title</code> was used in the header.
+      </td>
+    </tr>
+    <tr>
+      <td>async getDescription(): Promise&lt;string | null&gt;</td>
+      <td>
+        Gets the description text of the accordion item if a
+        <code>mat-panel-description</code> was used in the header.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        static with(options: AccordionItemHarnessFilters = {{ '{}' }}):
+        HarnessPredicate&lt;AccordionItemHarness&gt;
+      </td>
+      <td>
+        Gets a HarnessPredicate that can be used to search for an accordion item
+        with specific attributes.
+      </td>
+    </tr>
+  </tbody>
+</table>

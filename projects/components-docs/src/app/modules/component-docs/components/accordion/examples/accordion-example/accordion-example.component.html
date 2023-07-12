@@ -1,0 +1,25 @@
+<mat-slide-toggle class="mb-xxs block" [(ngModel)]="rightAlignToggle">
+  Right Align Accordion Toggle
+</mat-slide-toggle>
+<mat-slide-toggle class="mb-xs block" [(ngModel)]="allowMulti">
+  Allow Multiple Accordions Open
+</mat-slide-toggle>
+
+<cui-accordion [multi]="allowMulti">
+  <cui-accordion-item *ngFor="let item of items; let index = index">
+    <cui-accordion-header [rightAlignToggle]="rightAlignToggle">
+      <div class="flex grow justify-between items-center">
+        <span>{{ item }}</span>
+        <button mat-stroked-button color="primary">
+          Action {{ index + 1 }}
+        </button>
+      </div>
+    </cui-accordion-header>
+    <cui-accordion-body [hasDivider]="true">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
+      excepturi incidunt ipsum deleniti labore, tempore non nam doloribus
+      blanditiis veritatis illo autem iure aliquid ullam rem tenetur deserunt
+      velit culpa?
+    </cui-accordion-body>
+  </cui-accordion-item>
+</cui-accordion>

@@ -1,0 +1,30 @@
+<p>
+  The <code>cui-accordion</code> component is an accessible accordion similar to
+  the
+  <a
+    class="cui-link"
+    href="https://material.angular.io/components/expansion/overview"
+    target="_blank"
+  >
+    Angular Material expansion panel</a
+  >. It differs in that the button to expand and collapse the accordion body is
+  limited to just a single left justified button inside of the header panel
+  instead of the entire header panel itself being the button. This allows us to
+  place other actionable items (buttons, links, etc.) inside of the accordion
+  header panel without creating any accessibility issues, because screen readers
+  cannot correctly interpret nested buttons.
+  <br />
+  <br />
+  In other words, if we put a button inside of the header of the
+  <a
+    class="cui-link"
+    href="https://material.angular.io/components/expansion/overview"
+    target="_blank"
+  >
+    Angular Material expansion panel</a
+  >, then we create a situation where there is a button inside of another
+  button, which confuses assistive technology. The CoreUI accordion provides an
+  accessible alternative to this pattern.
+</p>
+
+<cui-accordion-example></cui-accordion-example>

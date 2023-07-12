@@ -1,0 +1,30 @@
+<h2 class="cui-h2 mb-xs" id="description">
+  Description
+  <ng-template cui-header-link linkFragment="description"></ng-template>
+</h2>
+
+<p>
+  The CoreUI accordion is implemented in a similar fashion to the Angular
+  Material expansion panel, in that it extends the
+  <a
+    href="https://material.angular.io/cdk/accordion/overview"
+    target="_blank"
+    class="cui-link"
+  >
+    CDK Accordion
+  </a>
+  classes. It maintains a similar API surface to the Angular Material expansion
+  panel with the goal of making it easy to switch between using one or the
+  other.
+</p>
+<cui-docs-implementation-page
+  [apiPropertiesData]="apiProperties"
+  [sectionHeaders]="['Basic Example']"
+  [tabCodeBlocks]="code"
+>
+  <ng-template let-index>
+    <ng-container>
+      <cui-accordion-example></cui-accordion-example>
+    </ng-container>
+  </ng-template>
+</cui-docs-implementation-page>
