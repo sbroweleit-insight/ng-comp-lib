@@ -1,0 +1,16 @@
+<div
+  class="cui-accordion-body-wrapper"
+  [@bodyExpansion]="getExpandedState()"
+  (@bodyExpansion.done)="bodyAnimationDone($event)"
+>
+  <div
+    class="cui-accordion-body"
+    [ngClass]="{ 'has-padding': hasPadding }"
+    role="region"
+    [attr.id]="'cui-accordion-body-' + id"
+    [attr.aria-labelledby]="'cui-accordion-header-content-' + id"
+  >
+    <mat-divider *ngIf="hasDivider" class="accordion-divider"></mat-divider>
+    <ng-content></ng-content>
+  </div>
+</div>

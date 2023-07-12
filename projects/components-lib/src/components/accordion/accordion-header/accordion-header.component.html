@@ -1,0 +1,41 @@
+<ng-container *ngIf="!rightAlignToggle">
+  <ng-container *ngTemplateOutlet="accordionToggleButton"></ng-container>
+</ng-container>
+<span
+  [attr.id]="'cui-accordion-toggle-label-' + id"
+  class="screen-reader-only"
+  aria-hidden="true"
+>
+  Click to {{ expanded ? 'collapse' : 'expand' }}
+</span>
+<div
+  [attr.id]="'cui-accordion-header-content-' + id"
+  class="cui-accordion-header-content"
+>
+  <ng-content></ng-content>
+</div>
+<ng-container *ngIf="rightAlignToggle">
+  <ng-container *ngTemplateOutlet="accordionToggleButton"></ng-container>
+</ng-container>
+
+<ng-template #accordionToggleButton>
+  <button
+    class="cui-accordion-toggle-button"
+    [ngClass]="{
+      'right-aligned': rightAlignToggle,
+      disabled: accordionItem?.disabled
+    }"
+    mat-icon-button
+    color="primary"
+    type="button"
+    [disabled]="accordionItem?.disabled"
+    [attr.id]="'cui-accordion-header-' + id"
+    [attr.aria-labelledby]="'cui-accordion-header-content-' + id"
+    [attr.aria-describedby]="'cui-accordion-toggle-label-' + id"
+    [attr.aria-expanded]="expanded"
+    [attr.aria-controls]="'cui-accordion-body-' + id"
+    (click)="onToggle()"
+  >
+    <mat-icon [@indicatorRotate]="getExpandedState()"> expand_more </mat-icon>
+  </button>
+</ng-template>
